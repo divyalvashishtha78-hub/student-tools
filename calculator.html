@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Tools Hub</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
+    text-align: center;
+}
+
+header {
+    padding: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    color: black;
+    width: 280px;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #5a67d8;
+}
+</style>
+</head>
+
+<body>
+
+<header>🎓 Student Tools Hub</header>
+
+<div class="container">
+
+<div class="card">
+    <h3>Percentage Calculator</h3>
+    <input type="number" id="total" placeholder="Total Marks">
+    <input type="number" id="obtained" placeholder="Obtained Marks">
+    <button onclick="calc()">Calculate</button>
+    <p id="result"></p>
+</div>
+
+<div class="card">
+    <h3>Age Calculator</h3>
+    <input type="date" id="dob">
+    <button onclick="ageCalc()">Calculate Age</button>
+    <p id="ageResult"></p>
+</div>
+
+</div>
+
+<script>
+function calc() {
+    let total = document.getElementById("total").value;
+    let obtained = document.getElementById("obtained").value;
+    let percent = (obtained / total) * 100;
+    document.getElementById("result").innerText =
+        "Percentage: " + percent.toFixed(2) + "%";
+}
+
+function ageCalc() {
+    let dob = new Date(document.getElementById("dob").value);
+    let today = new Date();
+    let age = today.getFullYear() - dob.getFullYear();
+    document.getElementById("ageResult").innerText =
+        "Age: " + age + " years";
+}
+</script>
+
+</body>
+</html>
